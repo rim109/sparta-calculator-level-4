@@ -3,13 +3,13 @@ fun main() {
     var cal = Calculator()
     println("식과 연산자를 차례대로 입력해주세요")
     println("num1를 입력하시오")
-    var num1 = readln().toInt()
+    var num1 = readln().toDouble()
 
     println("연산자를 입력해주세요")
     var operator = readln().toString()
 
     println("num2를 입력하시오")
-    var num2 = readln().toInt()
+    var num2 = readln().toDouble()
 
 
     if(operator == "+") {
@@ -34,7 +34,7 @@ fun main() {
 
 }
 class Calculator {
-    fun allcal (caAddOperation: AbstractOperation, num1:Int, num2: Int): Double {
+    fun allcal (caAddOperation: AbstractOperation, num1:Double, num2: Double): Double {
         return caAddOperation.operation(num1,num2)
     }
 //    fun caAdd (caAddOperation: AddOperation, num1:Int, num2: Int): Double {
@@ -61,35 +61,35 @@ class Calculator {
 
 
 class AddOperation : AbstractOperation(){
-    override fun operation(num1: Int, num2: Int): Double {
+    override fun operation(num1: Double, num2: Double): Double {
         return (num1 + num2).toDouble()
     }
 }
 
 class MinusOperation: AbstractOperation(){
-    override fun operation(num1: Int, num2: Int): Double {
+    override fun operation(num1: Double, num2: Double): Double {
         return (num1 - num2).toDouble()
     }
 }
 
 class MultipleOperation: AbstractOperation(){
-    override fun operation(num1: Int, num2: Int): Double {
+    override fun operation(num1: Double, num2: Double): Double {
         return (num1 * num2).toDouble()
     }
 }
 
 class DivideOperation : AbstractOperation(){
-    override fun operation(num1: Int, num2: Int): Double {
+    override fun operation(num1: Double, num2: Double): Double {
         return (num1 / num2).toDouble()
     }
 }
 
 class ReminderOperation : AbstractOperation(){
-    override fun operation(num1: Int,num2: Int): Double {
+    override fun operation(num1: Double, num2: Double): Double {
         return (num1 % num2).toDouble()
     }
 }
 
 abstract class AbstractOperation {
-    abstract fun operation(num1: Int, num2: Int): Double
+    abstract fun operation(num1: Double, num2: Double): Double
 }
